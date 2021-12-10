@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\HarapanController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,9 +44,12 @@ Route::get('/contact', function () {
 });
 
 Route::get('/berita', [BeritaController::class, 'index']);
-
 Route::get('/berita/{slug}', [BeritaController::class, 'show']);
 
 Route::get('/harapan', [HarapanController::class, 'index']);
-
 Route::get('/harapan/{slug}', [HarapanController::class, 'show']);
+
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'authenticate']);
+
+Route::get('/dashboard', [DashboardController::class, 'index']);
